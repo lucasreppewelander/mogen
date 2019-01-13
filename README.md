@@ -1,0 +1,2 @@
+# mogen
+react module generator
