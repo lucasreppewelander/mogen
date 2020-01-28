@@ -12,11 +12,17 @@ npm install --global @lrw/mogen
 
 # run it
 mogen init
+
+# create a component
+mogen Heading
+mogen Column Row
+# etc..
 ```
 
 ## Options
 * `--help` Prints out how to use mogen
-* `--init` Creates a .mogenrc file which stores the options from the initialize process
+* `--css` Overrides the config by setting the style path to --css
+* `--path` Overrides the config by setting the component path to --path
 
 ## License
 MIT License
