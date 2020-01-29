@@ -14,8 +14,8 @@ const create = async (name, opts) => {
 	const component_path = join(root, opts.path || config.path, `${name}/`);
 	const files = [
 		'index.js',
-		`${name}.${config.extension}`,
-		`${name}.${config.css}`
+		`${name}.${opts.extension || config.extension}`,
+		`${name}.${opts.css || config.css}`
 	]
 
 	for (const file of files) {
@@ -30,7 +30,7 @@ const create = async (name, opts) => {
 			if (plugin.indexOf('mogen-plugin') > -1) {
 				const plug = require(plugin);
 				if (plug.hasOwnProperty('run')) {
-					await plug.run();
+					await plug.run(name, opts, config, root);
 				}
 			}
 		}

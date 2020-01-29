@@ -29,6 +29,10 @@ const argv = require('yargs')
 		type: 'string',
 		description: 'Specify the CSS file ending, this will override the config value'
 	})
+	.option('extension', {
+		type: 'string',
+		description: 'Specify the extension for the component, this will override the config value'
+	})
 	.demandCommand()
 	.argv;
 
