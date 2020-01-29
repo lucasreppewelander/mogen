@@ -1,6 +1,7 @@
+const { promisify } = require('util');
 const { join } = require('path');
 const find_root = require('./helper/findRoot');
-const write_file = require('fs').writeFile;
+const write_file = promisify(require('fs').writeFile);
 
 module.exports = async function(options) {
 	const root = await find_root(process.cwd(), false);

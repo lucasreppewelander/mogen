@@ -1,5 +1,5 @@
-// const { promisify } = require('util');
-const read_dir = require('fs').readdir;
+const { promisify } = require('util');
+const read_dir = promisify(require('fs').readdir);
 
 const findRoot = async function(source, is_root) {
 	const files = await read_dir(source);

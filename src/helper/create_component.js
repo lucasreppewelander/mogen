@@ -1,19 +1,20 @@
+const { promisify } = require('util');
 const { join, dirname } = require('path');
 const mkdirp = require('mkdirp');
 const find_root = require('./findRoot');
 const get_file_content = require('./get_file_content');
-const read_file = require('fs').readFile;
-const write_file = require('fs').writeFile;
+const read_file = promisify(require('fs').readFile);
+const write_file = promisify(require('fs').writeFile);
 
 const create = async (name, opts) => {
 	const root = await find_root(process.cwd(), false);
 	const raw_config = await read_file(join(root, '.mogenrc'));
 	const config = JSON.parse(raw_config);
 
-	const component_path = join(root, config.path, `${name}/`);
+	const component_path = join(root, opts.path || config.path, `${name}/`);
 	const files = [
 		'index.js',
-		`${name}.${config.extensions}`,
+		`${name}.${config.extension}`,
 		`${name}.${config.css}`
 	]
 

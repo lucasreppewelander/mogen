@@ -6,7 +6,7 @@ const fixComponentNames = function(argv) {
 		names.push(argv.name)
 	}
 
-	for (const i = 0; i < argv._.length; i++) {
+	for (let i = 0; i < argv._.length; i++) {
 		names.push(argv._[i])
 	}
 

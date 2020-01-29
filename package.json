@@ -2,10 +2,10 @@
   "name": "@lrw/mogen",
   "version": "1.0.0",
   "description": "a component generator for react",
-  "main": "./lib/cli.js",
+  "main": "./src/mogen.js",
   "preferGlobal": true,
   "bin": {
-    "mogen": "./lib/cli.js"
+    "mogen": "./src/mogen.js"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -31,6 +31,7 @@
   "devDependencies": {
     "@babel/cli": "^7.8.3",
     "@babel/core": "^7.8.3",
+    "@babel/plugin-transform-async-to-generator": "^7.8.3",
     "@babel/preset-env": "^7.8.3"
   },
   "dependencies": {

@@ -8,7 +8,7 @@ const argv = require('yargs')
 	.usage('Usage: mogen <command> [options]')
 	.command('$0 [name]','generates a component', yargs => {
 		yargs.positional('name', {
-			description: 'the name of your component',
+			description: 'the name of your component'
 		})
 	})
 	.command('init','inits the config')
@@ -32,8 +32,6 @@ const argv = require('yargs')
 	.demandCommand()
 	.argv;
 
-console.log(argv);
-
 const init = argv._[0] === 'init';
 const components = fixComponentNames(argv);
 
@@ -41,7 +39,8 @@ if (init) {
 	prompt([{
 		name: 'path',
 		type: 'input',
-		message: 'Path to your components ("./src/components/")'
+		message: 'Path to your components',
+		default: './src/components/'
 	}, {
 		name: 'css',
 		type: 'list',
